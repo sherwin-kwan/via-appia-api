@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const movements = require('../data/movements');
 
 /* GET a single movement */
 router.get('/:id', function(req, res, next) {
@@ -14,12 +15,12 @@ router.post('/:id', (req, res, next) => {
 
 /* DELETE a movement */
 router.delete('/:id', (req, res, next) => {
-  
+
 });
 
 /* GET all movements */
 router.get('/', function(req, res, next) {
-  res.json();
+  res.json(movements);
 });
 
 
