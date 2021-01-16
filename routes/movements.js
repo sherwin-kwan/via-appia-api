@@ -11,12 +11,13 @@ router.get('/:id', function(req, res, next) {
 
 /* EDIT a movement */
 router.post('/:id', (req, res, next) => {
-
+  
 });
 
 /* DELETE a movement */
 router.delete('/:id', (req, res, next) => {
-  const myId = movements.indexOf(movement => movement.id === Number(req.params.id));
+  const myId = movements.findIndex(movement => movement.id === Number(req.params.id));
+  console.log('myId is: ', myId, 'since the param is: ', req.params.id);
   if (myId >= 0) {
     movements.splice(myId, 1);
   } else {
