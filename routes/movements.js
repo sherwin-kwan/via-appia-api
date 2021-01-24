@@ -40,7 +40,7 @@ router.get('/', function(req, res, next) {
 
 /* CREATE new movement */
 router.post('/', (req, res, next) => {
-  const processedData = req.body.data;
+  const processedData = req.body;
   for (const key of Object.keys(processedData)) {
     if (!isNaN(Number(processedData[key]))) {
       processedData[key] = Number(processedData[key]);
