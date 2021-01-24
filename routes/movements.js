@@ -10,8 +10,14 @@ router.get('/:id', function(req, res, next) {
 
 /* EDIT a movement */
 router.post('/:id', (req, res, next) => {
+  const processedData = req.body.data;
+  for (const key of Object.keys(processedData)) {
+    if (!isNaN(Number(processedData[key]))) {
+      processedData[key] = Number(processedData[key]);
+    };
+  };
   const index = movements.findIndex(movement => movement.id === Number(req.params.id));
-  movements[index] = req.body.data;
+  movements[index] = processedData;
   res.send("Done");
 });
 
@@ -34,8 +40,14 @@ router.get('/', function(req, res, next) {
 
 /* CREATE new movement */
 router.post('/', (req, res, next) => {
-  const nextId = movements[movements.length - 1].id + 1;
-  const newMovement = Object.assign(req.body.data, {id: nextId});
+  const processedData = req.body.data;
+  for (const key of Object.keys(processedData)) {
+    if (!isNaN(Number(processedData[key]))) {
+      processedData[key] = Number(processedData[key]);
+    };
+  };
+  const nextId = Number(movements[movements.length - 1].id) + 1;
+  const newMovement = Object.assign(processedData, {id: nextId});
   movements.push(newMovement);
   res.send("Done");
 });
