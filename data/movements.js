@@ -38,9 +38,8 @@ const movements = [
     "startLong": -122.22,
     "endLat": 34.13,
     "endLong": -118.32,
-    "startLocation": "Mount St. Helens, WA",
     "endLocation": "Los Angeles, CA",
-    "freight": "Volcanic ash souvenirs",
+    "freight": "Volcanic ash from Mount St. Helens",
     "details": "Feel free to cancel this delivery if the volcano is actively spewing smoke"
   },
   {
